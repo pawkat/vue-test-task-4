@@ -3,13 +3,23 @@
     <div class="hero__inner">
       <div class="hero__content">
         <h1
-            v-if="title"
+            v-html="getTitle"
             class="hero__title"
-            v-html="title"
+        ></h1>
+        <h1
+            v-if="getDescription"
+            v-html="getDescription"
+            class="hero__description"
         ></h1>
       </div>
-      <div class="hero__nav" v-if="nav.length">
-        <v-hero-nav :nav="nav" @heroNavItemMouseover="heroNavItemMouseover"/>
+      <div
+          v-if="nav.length"
+          class="hero__nav"
+      >
+        <v-hero-nav
+            :nav="nav"
+            @heroNavItemMouseover="heroNavItemMouseover"
+        />
       </div>
     </div>
     <router-link
@@ -33,6 +43,11 @@ export default {
       type: String,
       default: '',
       required: true
+    },
+    description: {
+      type: String,
+      default: '',
+      required: false
     },
     nav: {
       type: Array,
@@ -60,6 +75,22 @@ export default {
         }
       }
       return this.backgroundImage ? `url(${this.backgroundImage})` : 'none'
+    },
+    getTitle: function () {
+      for (const item of this.nav) {
+        if (item.isHovered) {
+          return item.title
+        }
+      }
+      return this.title
+    },
+    getDescription: function () {
+      for (const item of this.nav) {
+        if (item.isHovered) {
+          return item.description
+        }
+      }
+      return this.description
     },
     getHeroClassMod: function () {
       const classMod = this.full ? 'hero_full' : ''
@@ -134,6 +165,17 @@ export default {
     b {
       @include Montserrat-ExtraBold;
     }
+
+    &:not(:last-child) {
+      margin-bottom: 1rem;
+    }
+  }
+
+  &__description {
+    font-size: .625rem;
+    line-height: 1.8;
+    text-align: center;
+    @include Montserrat-SemiBold;
   }
 
   &__nav {
@@ -145,9 +187,14 @@ export default {
     position: absolute;
     top: .5rem;
     left: .5rem;
+    transition: transform .3s ease;
     @include lg {
       top: 1.3rem;
       left: 1.3rem;
+    }
+
+    &:hover {
+      transform: scale(1.1);
     }
   }
 }

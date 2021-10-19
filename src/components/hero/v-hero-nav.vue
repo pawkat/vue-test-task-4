@@ -121,6 +121,7 @@ $gap: .625rem;
 
     #{$self}__title, #{$self}__description {
       opacity: 0;
+      transform: translate(0, -1rem);
     }
   }
 
@@ -141,7 +142,7 @@ $gap: .625rem;
   }
 
   &__title, &__description {
-    transition: opacity .3s ease;
+    transition: opacity .3s ease, transform .3s ease;
   }
 
   &__title {

@@ -6,17 +6,19 @@
 
 .site-content {
   flex-grow: 1;
-  overflow-y: auto;
+  overflow: hidden;
 
   & > .wrapper {
-    min-height: 100%;
+    height: 100%;
     display: flex;
+    overflow: hidden;
   }
 
   &__inner {
     min-height: 100%;
     width: 100%;
     border: 1px solid $light-gray;
+    overflow-y: auto;
   }
 }
 

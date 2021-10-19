@@ -24,14 +24,20 @@ a {
 }
 
 h1 {
-  font-size: 2.5rem;
+  font-size: 2rem;
   line-height: 1.225;
+  @include md {
+    font-size: 2.5rem;
+  }
 }
 
 h2 {
-  font-size: 2rem;
+  font-size: 1.5rem;
   line-height: 1.25;
   @include Montserrat-Bold;
+  @include lg {
+    font-size: 2rem;
+  }
 
   &:not(:last-child) {
     margin-bottom: 2.4375rem;
