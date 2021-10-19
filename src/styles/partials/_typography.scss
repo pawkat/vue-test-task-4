@@ -1,0 +1,52 @@
+@include font('OpenSans-Regular', 'OpenSans-Regular');
+@include font('Montserrat-Regular', 'Montserrat-Regular');
+@include font('Montserrat-SemiBold', 'Montserrat-SemiBold');
+@include font('Montserrat-Bold', 'Montserrat-Bold');
+@include font('Montserrat-ExtraBold', 'Montserrat-ExtraBold');
+
+html {
+  font-size: 16px;
+  line-height: 1.5;
+  color: $black;
+  font-family: 'Montserrat-Regular', 'Open Sans', sans-serif;
+  font-weight: 400;
+}
+
+a {
+  color: inherit;
+  transition: color .3s ease;
+  text-decoration: underline;
+
+  &:hover {
+    text-decoration: none;
+    color: $blue;
+  }
+}
+
+h1 {
+  font-size: 2.5rem;
+  line-height: 1.225;
+}
+
+h2 {
+  font-size: 2rem;
+  line-height: 1.25;
+  @include Montserrat-Bold;
+
+  &:not(:last-child) {
+    margin-bottom: 2.4375rem;
+  }
+}
+
+h3 {
+  font-size: 1.25rem;
+  line-height: 1.2;
+  letter-spacing: -0.2px;
+  @include Montserrat-SemiBold;
+}
+
+p {
+  &:not(:last-child) {
+    margin-bottom: 2.625rem;
+  }
+}
