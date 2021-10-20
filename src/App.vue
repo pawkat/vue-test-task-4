@@ -4,7 +4,9 @@
     <div class="site-content">
       <div class="wrapper">
         <div class="site-content__inner">
-          <router-view/>
+          <keep-alive>
+            <router-view/>
+          </keep-alive>
         </div>
       </div>
     </div>

@@ -5,12 +5,14 @@
         <div
             v-for="(item, i) in nav"
             :key="i"
+            ref="heroNavItems"
             @mouseover="onMouseEvent($event, i)"
             @mouseout="onMouseEvent($event, i)"
             class="hero-nav__item"
         >
-          <router-link
-              :to="item.path"
+          <a
+              :href="item.path"
+              @click.prevent="goToPage($event, i)"
               class="hero-nav-item"
           >
             <div class="hero-nav-item__inner">
@@ -32,7 +34,7 @@
                 </div>
               </div>
             </div>
-          </router-link>
+          </a>
         </div>
       </div>
     </div>
@@ -53,6 +55,12 @@ export default {
   methods: {
     onMouseEvent: function (event, index) {
       this.$emit('heroNavItemMouseover', {
+        event,
+        index
+      })
+    },
+    goToPage: function (event, index) {
+      this.$emit('heroNavItemClick', {
         event,
         index
       })

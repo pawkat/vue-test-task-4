@@ -2,8 +2,6 @@
   <v-hero
       :title="title"
       :nav="nav"
-      @heroNavItemMouseover="heroNavItemMouseover"
-      :full="true"
       :backgroundImage="backgroundImage"
       :homeLink="true"
   />
@@ -27,38 +25,22 @@ export default {
           title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt?',
           // eslint-disable-next-line import/no-absolute-path
           image: require('/static/img/patient1.jpeg'),
-          path: '/patient-1',
-          isHovered: false
+          path: '/patient-1'
         },
         {
           title: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat',
           // eslint-disable-next-line import/no-absolute-path
           image: require('/static/img/patient2.jpeg'),
-          path: '/patient-2',
-          isHovered: false
+          path: '/patient-2'
         },
         {
           title: 'Quis nostrud exercitation ullamco laboris nisi ut aliquipea commodo consequat.',
           description: 'Lorem ipsum dolor sit amet, consectetur.',
           // eslint-disable-next-line import/no-absolute-path
           image: require('/static/img/patient3.jpeg'),
-          path: '/patient-3',
-          isHovered: false
+          path: '/patient-3'
         }
       ]
-    }
-  },
-  methods: {
-    heroNavItemMouseover: function (data) {
-      if (data.event.type === 'mouseout') {
-        this.nav.map(item => {
-          item.isHovered = false
-        })
-      } else if (data.event.type === 'mouseover') {
-        this.nav.map((item, i) => {
-          item.isHovered = data.index === i
-        })
-      }
     }
   }
 }

@@ -3,6 +3,7 @@
       :title="title"
       :description="description"
       :backLink="true"
+      :scrollDown="true"
       :backgroundImage="backgroundImage"
   />
   <div class="content">
@@ -31,18 +32,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss">
-.home {
-  display: flex;
-  min-height: 100%;
-
-  & > .wrapper {
-    min-height: 100%;
-
-    & > .hero {
-      min-height: 100%;
-    }
-  }
-}
-</style>
